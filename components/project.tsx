@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Text, Link, Card, Dot, Tag, useTheme } from "@geist-ui/react";
+import { Text, Link, Card, Dot, Tag, useTheme } from "@geist-ui/react";
 import * as Icons from "react-feather";
 
 interface Props {
