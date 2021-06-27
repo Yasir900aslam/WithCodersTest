@@ -18,17 +18,18 @@ const QUERY = gql`
 const SearchAndShow: React.FC = () => {
 
 	const [city, setCity] = useState(" ")
-	const [options, setOptions] = useState()
-	const [searching, setSearching] = useState(false)
-	const [temperature, setTemperature] = useState(null)
+	const [temperature, setTemperature] = useState(" ")
+	const [mintemperature, setMinTemperature] = useState(" ")
+	const [maxtemperature, setMaxTemperature] = useState(" ")
 	const [json, setjson] = useState(null)
+	const [err, setErr] = useState(false)
 	const timer = useRef()
 
 	const getDataOfCity = ()=>{
 		client.query({
 			query: gql`
 			query {
-				getCityByName(name: "Gothenburg") {
+				getCityByName(name: "${city}") {
 				  weather {
 				    temperature {
 				      actual
@@ -40,8 +41,14 @@ const SearchAndShow: React.FC = () => {
 				}
 		}
 			`,
-		      }).then(data=>{
-			      setjson(data)
+		      }).then(data=> { 
+			      const {actual, min , max } = data.data.getCityByName.weather.temperature;
+			      setTemperature(actual)
+			      setMinTemperature(min)
+			      setMaxTemperature(max)
+		      })
+		      .catch(err=>{
+			setErr(true)
 		      })
 	}
 
@@ -50,8 +57,31 @@ const SearchAndShow: React.FC = () => {
 		  <Input label="City Name" value={city} placeholder="Enter City Name" onChange={(e)=>{
 			  setCity(e.target.value)
 		  }}/>
-		  <br />
+ 		  <Spacer y='.5' />
 		  <Button shadow type="secondary" onClick={getDataOfCity}>Search</Button>
+		  { err ? <Text>
+			  Error Occured
+		  </Text>: null
+		  }
+		  {
+		   temperature !== " " ?
+		   <Text>
+			Actual Temperature: {temperature} Faranheit
+		   </Text>: null
+		  }
+		{
+		   mintemperature!== " " ?
+		   <Text>
+			Minimum Temperature: {mintemperature} Faranheit
+		   </Text>: null
+		  }
+
+		{
+		   maxtemperature !== " " ?
+		   <Text>
+			Maximum Temperature: {maxtemperature} Faranheit
+		   </Text>: null
+		  }
 
 	    </>
 
