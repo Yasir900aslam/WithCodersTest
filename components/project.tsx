@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, Link, Card, Dot, Tag, useTheme } from "@geist-ui/react";
 import * as Icons from "react-feather";
+import SearchAndShow from './searchandshow'
 
 interface Props {
   projectId: string;
@@ -13,14 +14,18 @@ export type ProjectProps = Props;
 const Project: React.FC<ProjectProps> = ({ projectId, createdAt, repo }) => {
   const theme = useTheme();
 
+  const allOptions = [
+	  { label: 'London', value: 'london' },
+	  { label: 'Sydney', value: 'sydney' },
+	  { label: 'Shanghai', value: 'shanghai' },
+	]
+
   return (
     <>
       <div className="project__wrapper">
         <Card className="project__card" shadow>
-          <div className="project__title">
-            <Text h3>{projectId}</Text>
-          </div>
           <div>
+            <SearchAndShow cityoptions={allOptions}/> 
             <Dot className="project__deployment" type="success">
               <Link href="#">{projectId}.vercel.app</Link>
               <Tag className="project__environment-tag" type="secondary">
