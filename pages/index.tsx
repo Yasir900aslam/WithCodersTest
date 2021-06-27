@@ -41,20 +41,7 @@ const Page = () => {
         .projects :global(.project__wrapper):not(:last-of-type) {
           margin-bottom: calc(1.5 * ${theme.layout.gap});
         }
-        .recent-activity {
-          flex: 1;
-        }
-        .recent-activity :global(.recent-activity__title) {
-          font-size: 0.875rem;
-          font-weight: 700;
-          margin: 0 0 calc(3 * ${theme.layout.gapHalf});
-        }
-        .page__content :global(.view-all) {
-          font-size: 0.875rem;
-          font-weight: 700;
-          margin: calc(1.5 * ${theme.layout.gap}) 0;
-          text-align: center;
-        }
+        
         @media (max-width: ${theme.breakpoints.sm.max}) {
           .page__content {
             flex-direction: column;
