@@ -1,9 +1,7 @@
 import React from "react";
-import NextLink from "next/link";
-import { Text, Link, useTheme } from "@geist-ui/react";
+import { useTheme } from "@geist-ui/react";
 import Heading from "@/components/heading";
-import EventListItem from "@/components/activity-event";
-import Project from "@/components/project";
+import SearchAndShowWrapper from "../components/searchandshow"
 
 const Page = () => {
   const theme = useTheme();
@@ -16,11 +14,7 @@ const Page = () => {
       <div className="page__wrapper">
         <div className="page__content">
           <div className="projects">
-            <Project
-              projectId="Test"
-              repo="ofekashery/personal-website"
-              createdAt="2d"
-            />
+            <SearchAndShowWrapper />
           </div>
         </div>
       </div>
