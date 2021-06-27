@@ -48,7 +48,6 @@ const DashboardApp = ({ Component, pageProps }: AppProps) => {
         <PrefersContext.Provider value={{ themeType, switchTheme }}>
           <Menu />
           <Component {...pageProps} />
-          <Footer />
         </PrefersContext.Provider>
       </GeistProvider>
     </>
