@@ -1,8 +1,6 @@
-import React from "react";
-import { Text, Link, Card, Dot, Tag, useTheme } from "@geist-ui/react";
-import * as Icons from "react-feather";
-import SearchAndShow from "./searchandshow";
-
+import React from 'react';
+import { Card, useTheme } from '@geist-ui/react';
+import SearchAndShow from './searchandshow';
 const SearchAndShowWrapper: React.FC = () => {
   const theme = useTheme();
 

@@ -1,7 +1,6 @@
-import React from "react";
-import NextLink from "next/link";
-import { Avatar, Button, Tag, Text, Link, useTheme } from "@geist-ui/react";
-import * as Icons from "react-feather";
+import React from 'react';
+import { Tag, Text, Link, useTheme } from '@geist-ui/react';
+import * as Icons from 'react-feather';
 
 interface Props {
   user: { name: string; role: string; github?: string };
@@ -26,15 +25,8 @@ const Heading: React.FC<HeadingProps> = ({ user }) => {
 
             {user.github && (
               <div className="heading__integration">
-                <Text className="heading__integration-title">
-                  Git Integrations
-                </Text>
-                <Link
-                  href={`https://github.com/${user.github}`}
-                  target="_blank"
-                  rel="noopener"
-                  underline
-                >
+                <Text className="heading__integration-title">Git Integrations</Text>
+                <Link href={`https://github.com/${user.github}`} target="_blank" rel="noopener" underline>
                   <div className="heading__integration-inner">
                     <Icons.GitHub size={16} aria-label="Github" />
                     <span>{user.github}</span>
@@ -55,8 +47,7 @@ const Heading: React.FC<HeadingProps> = ({ user }) => {
           width: ${theme.layout.pageWidthWithMargin};
           max-width: 100%;
           margin: 0 auto;
-          padding: calc(${theme.layout.gap} * 2) ${theme.layout.pageMargin}
-            calc(${theme.layout.gap} * 4);
+          padding: calc(${theme.layout.gap} * 2) ${theme.layout.pageMargin} calc(${theme.layout.gap} * 4);
           box-sizing: border-box;
         }
         .heading :global(.heading__user-avatar) {

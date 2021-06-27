@@ -1,9 +1,9 @@
-import React from "react";
-import { Avatar, Button, useTheme, Popover } from "@geist-ui/react";
-import * as Icons from "react-feather";
-import Submenu from "@/components/navigation/submenu";
-import UserSettings from "@/components/navigation/user-settings";
-import { usePrefers } from "@/lib/use-prefers";
+import React from 'react';
+import { Avatar, Button, useTheme, Popover } from '@geist-ui/react';
+import * as Icons from 'react-feather';
+import Submenu from '@/components/navigation/submenu';
+import UserSettings from '@/components/navigation/user-settings';
+import { usePrefers } from '@/lib/use-prefers';
 
 const Menu: React.FC = () => {
   const theme = useTheme();
@@ -14,34 +14,18 @@ const Menu: React.FC = () => {
       <nav className="menu-nav">
         <h1 className="menu-nav__title">With Coders Test</h1>
         <div>
-          <Button
-            aria-label="Toggle Ful Screen"
-            className="theme-button"
-            auto
-            type="abort"
-            onClick={(e) => {}}
-          />
+          <Button aria-label="Toggle Ful Screen" className="theme-button" auto type="abort" onClick={(e) => {}} />
 
           <Button
             aria-label="Toggle Dark mode"
             className="theme-button"
             auto
             type="abort"
-            onClick={() =>
-              prefers.switchTheme(theme.type === "dark" ? "light" : "dark")
-            }
+            onClick={() => prefers.switchTheme(theme.type === 'dark' ? 'light' : 'dark')}
           >
-            {theme.type === "dark" ? (
-              <Icons.Sun size={16} />
-            ) : (
-              <Icons.Moon size={16} />
-            )}
+            {theme.type === 'dark' ? <Icons.Sun size={16} /> : <Icons.Moon size={16} />}
           </Button>
-          <Popover
-            content={<UserSettings />}
-            placement="bottomEnd"
-            portalClassName="user-settings__popover"
-          >
+          <Popover content={<UserSettings />} placement="bottomEnd" portalClassName="user-settings__popover">
             <button className="user-settings__button">
               <Avatar text="OA" />
             </button>

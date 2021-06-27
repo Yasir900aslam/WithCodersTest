@@ -1,5 +1,5 @@
-import React from "react";
-import { Avatar, Text, useTheme } from "@geist-ui/react";
+import React from 'react';
+import { Avatar, Text, useTheme } from '@geist-ui/react';
 
 interface Props {
   username: string;
@@ -10,22 +10,13 @@ interface Props {
 
 export type ActivityEventProps = Props;
 
-const ActivityEvent: React.FC<ActivityEventProps> = ({
-  username,
-  avatar,
-  createdAt,
-  children,
-}) => {
+const ActivityEvent: React.FC<ActivityEventProps> = ({ username, avatar, createdAt, children }) => {
   const theme = useTheme();
 
   return (
     <>
       <div className="activity-event">
-        <Avatar
-          className="activity-event__avatar"
-          src={avatar}
-          alt={`${username} Avatar`}
-        />
+        <Avatar className="activity-event__avatar" src={avatar} alt={`${username} Avatar`} />
         <Text className="activity-event__message">{children}</Text>
         <Text className="activity-event__created-at">{createdAt}</Text>
       </div>

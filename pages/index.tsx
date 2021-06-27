@@ -1,16 +1,14 @@
-import React from "react";
-import { useTheme } from "@geist-ui/react";
-import Heading from "@/components/heading";
-import SearchAndShowWrapper from "../components/searchandshow";
+import React from 'react';
+import { useTheme } from '@geist-ui/react';
+import Heading from '@/components/heading';
+import SearchAndShowWrapper from '../components/searchandshow';
 
 const Page = () => {
   const theme = useTheme();
 
   return (
     <>
-      <Heading
-        user={{ name: "Yasir Aslam", role: "none", github: "Yasir900Aslam" }}
-      />
+      <Heading user={{ name: 'Yasir Aslam', role: 'none', github: 'Yasir900Aslam' }} />
       <div className="page__wrapper">
         <div className="page__content">
           <div className="projects">
