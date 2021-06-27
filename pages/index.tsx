@@ -1,26 +1,18 @@
-import React from "react";
-import NextLink from "next/link";
-import { Text, Link, useTheme } from "@geist-ui/react";
-import Heading from "@/components/heading";
-import EventListItem from "@/components/activity-event";
-import Project from "@/components/project";
+import React from 'react';
+import { useTheme } from '@geist-ui/react';
+import Heading from '@/components/heading';
+import SearchAndShowWrapper from '../components/searchandshow';
 
 const Page = () => {
   const theme = useTheme();
 
   return (
     <>
-      <Heading
-        user={{ name: "Yasir Aslam", role: "none", github: "Yasir900Aslam" }}
-      />
+      <Heading user={{ name: 'Yasir Aslam', role: 'none', github: 'Yasir900Aslam' }} />
       <div className="page__wrapper">
         <div className="page__content">
           <div className="projects">
-            <Project
-              projectId="Test"
-              repo="ofekashery/personal-website"
-              createdAt="2d"
-            />
+            <SearchAndShowWrapper />
           </div>
         </div>
       </div>
@@ -47,20 +39,7 @@ const Page = () => {
         .projects :global(.project__wrapper):not(:last-of-type) {
           margin-bottom: calc(1.5 * ${theme.layout.gap});
         }
-        .recent-activity {
-          flex: 1;
-        }
-        .recent-activity :global(.recent-activity__title) {
-          font-size: 0.875rem;
-          font-weight: 700;
-          margin: 0 0 calc(3 * ${theme.layout.gapHalf});
-        }
-        .page__content :global(.view-all) {
-          font-size: 0.875rem;
-          font-weight: 700;
-          margin: calc(1.5 * ${theme.layout.gap}) 0;
-          text-align: center;
-        }
+
         @media (max-width: ${theme.breakpoints.sm.max}) {
           .page__content {
             flex-direction: column;

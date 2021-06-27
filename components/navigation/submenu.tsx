@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import { Tabs, useTheme } from "@geist-ui/react";
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { Tabs, useTheme } from '@geist-ui/react';
 
 const Submenu: React.FC = () => {
   const theme = useTheme();
@@ -8,21 +8,17 @@ const Submenu: React.FC = () => {
   const [sticky, setSticky] = useState(false);
 
   useEffect(() => {
-    const scrollHandler = () =>
-      setSticky(document.documentElement.scrollTop > 54);
-    document.addEventListener("scroll", scrollHandler);
-    return () => document.removeEventListener("scroll", scrollHandler);
+    const scrollHandler = () => setSticky(document.documentElement.scrollTop > 54);
+    document.addEventListener('scroll', scrollHandler);
+    return () => document.removeEventListener('scroll', scrollHandler);
   }, [setSticky]);
 
   return (
     <>
       <nav className="sub-menu__wrapper">
-        <div className={`sub-menu ${sticky ? "sub-menu_sticky" : ""}`}>
+        <div className={`sub-menu ${sticky ? 'sub-menu_sticky' : ''}`}>
           <div className="sub-menu__inner">
-            <Tabs
-              value={router.asPath}
-              onChange={(route) => router.push(route)}
-            >
+            <Tabs value={router.asPath} onChange={(route) => router.push(route)}>
               <Tabs.Item label="Location" value="/" />
             </Tabs>
           </div>

@@ -1,47 +1,21 @@
-import React from "react";
-import { Text, Link, Card, Dot, Tag, useTheme } from "@geist-ui/react";
-import * as Icons from "react-feather";
-import SearchAndShow from './searchandshow'
-
-interface Props {
-  projectId: string;
-  createdAt: string;
-  repo: string;
-}
-
-export type ProjectProps = Props;
-
-const Project: React.FC<ProjectProps> = ({ projectId, createdAt, repo }) => {
+import React from 'react';
+import { Card, useTheme } from '@geist-ui/react';
+import SearchAndShow from './searchandshow';
+const SearchAndShowWrapper: React.FC = () => {
   const theme = useTheme();
-
-  const allOptions = [
-	  { label: 'London', value: 'london' },
-	  { label: 'Sydney', value: 'sydney' },
-	  { label: 'Shanghai', value: 'shanghai' },
-	]
 
   return (
     <>
       <div className="project__wrapper">
         <Card className="project__card" shadow>
           <div>
-            <SearchAndShow /> 
+            <SearchAndShow />
           </div>
         </Card>
       </div>
       <style jsx>{`
         .project__wrapper :global(.project__card) {
           padding: 0 !important;
-        }
-        .project__title {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: space-between;
-          margin-bottom: ${theme.layout.gap};
-        }
-        .project__title :global(h3) {
-          margin: 0;
         }
         .project__wrapper :global(.project__deployment) {
           display: flex;
@@ -104,4 +78,4 @@ const Project: React.FC<ProjectProps> = ({ projectId, createdAt, repo }) => {
   );
 };
 
-export default Project;
+export default SearchAndShowWrapper;
