@@ -19,9 +19,6 @@ const Project: React.FC<ProjectProps> = ({ projectId, createdAt, repo }) => {
         <Card className="project__card" shadow>
           <div className="project__title">
             <Text h3>{projectId}</Text>
-            <Button className="project__visit-button" size="small" auto>
-              Visit
-            </Button>
           </div>
           <div>
             <Dot className="project__deployment" type="success">

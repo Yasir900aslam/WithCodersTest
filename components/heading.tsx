@@ -16,25 +16,12 @@ const Heading: React.FC<HeadingProps> = ({ user }) => {
     <>
       <div className="heading__wrapper">
         <div className="heading">
-          <Avatar
-            alt="Your Avatar"
-            className="heading__user-avatar"
-            src="/assets/avatar.png"
-          />
           <div className="heading__name">
             <div className="heading__title">
               <Text h2 className="headding__user-name">
                 {user.name}
               </Text>
               <Tag className="headding__user-role">{user.role}</Tag>
-
-              <div className="heading__actions">
-                <NextLink href="/projects" passHref>
-                  <Button type="secondary" auto>
-                    Create Project
-                  </Button>
-                </NextLink>
-              </div>
             </div>
 
             {user.github && (
