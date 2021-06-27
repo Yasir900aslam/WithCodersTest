@@ -1,46 +1,62 @@
-import React, { useRef, useState } from 'react'
-import { AutoComplete, Text } from '@geist-ui/react'
+import React, { useEffect, useRef, useState } from 'react'
+import { Text, Input, Spacer, Button } from '@geist-ui/react'
+import { gql } from "@apollo/client";
+import client from "../utils/apollo-client";
 
-interface Props {
-	cityoptions: {
-		label: String,
-		value: String
-	}[]
- }
 
- export type AutoSearchProps = Props;
+const QUERY = gql`
+  query Countries {
+    countries {
+      code
+      name
+      emoji
+    }
+  }
+`;
 
-const SearchAndShow: React.FC<AutoSearchProps> = ({cityoptions}) => {
-	
+
+const SearchAndShow: React.FC = () => {
+
+	const [city, setCity] = useState(" ")
 	const [options, setOptions] = useState()
 	const [searching, setSearching] = useState(false)
 	const [temperature, setTemperature] = useState(null)
-	
+	const [json, setjson] = useState(null)
 	const timer = useRef()
 
-	const searchHandler = (currentValue) => {
-	  if (!currentValue) return setOptions([])
-	  setSearching(true)
-	  const relatedOptions = cityoptions.filter(item => item.value.includes(currentValue))
-	  // this is mock async request
-	  // you can get data in any way
-	  timer.current && clearTimeout(timer.current)
-	  timer.current = setTimeout(() => {
-	    setOptions(relatedOptions)
-	    setSearching(false)
-	    clearTimeout(timer.current)
-	  }, 1000)
+	const getDataOfCity = ()=>{
+		client.query({
+			query: gql`
+			query {
+				getCityByName(name: "Gothenburg") {
+				  weather {
+				    temperature {
+				      actual
+				      feelsLike
+				      min
+				      max
+				    }
+				  }
+				}
+		}
+			`,
+		      }).then(data=>{
+			      setjson(data)
+		      })
 	}
+
 	return (
 		<>
-	  <AutoComplete searching={searching}
-	    options={options}
-	    placeholder="Enter Location here"
-	    onSearch={searchHandler} />
-	    <Text size={12}>{temperature}</Text>
+		  <Input label="City Name" value={city} placeholder="Enter City Name" onChange={(e)=>{
+			  setCity(e.target.value)
+		  }}/>
+ 		  <Spacer y={.5} />
+		  <Button shadow type="secondary" onClick={getDataOfCity}>Search</Button>
+		  
 	    </>
 
 	)
-      }
+}
+
 
 export default SearchAndShow

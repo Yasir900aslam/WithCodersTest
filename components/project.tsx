@@ -25,26 +25,8 @@ const Project: React.FC<ProjectProps> = ({ projectId, createdAt, repo }) => {
       <div className="project__wrapper">
         <Card className="project__card" shadow>
           <div>
-            <SearchAndShow cityoptions={allOptions}/> 
-            <Dot className="project__deployment" type="success">
-              <Link href="#">{projectId}.vercel.app</Link>
-              <Tag className="project__environment-tag" type="secondary">
-                Production
-              </Tag>
-              <span className="project__created-at">{createdAt}</span>
-            </Dot>
-            <Dot className="project__deployment" type="success">
-              <Link href="#">{projectId}-oa71gi2.vercel.app</Link>
-              <Tag className="project__environment-tag" type="secondary">
-                Latest
-              </Tag>
-              <span className="project__created-at">{createdAt}</span>
-            </Dot>
+            <SearchAndShow /> 
           </div>
-          <Card.Footer className="project__footer">
-            <Icons.GitHub size={14} />
-            <Text className="project__repo">{repo}</Text>
-          </Card.Footer>
         </Card>
       </div>
       <style jsx>{`
