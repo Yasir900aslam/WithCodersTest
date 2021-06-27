@@ -50,9 +50,10 @@ const SearchAndShow: React.FC = () => {
 		  <Input label="City Name" value={city} placeholder="Enter City Name" onChange={(e)=>{
 			  setCity(e.target.value)
 		  }}/>
- 		  <Spacer y={.5} />
+ 		  <Spacer y='.5' />
+		   <Spacer y='.5' />
 		  <Button shadow type="secondary" onClick={getDataOfCity}>Search</Button>
-		  
+
 	    </>
 
 	)
