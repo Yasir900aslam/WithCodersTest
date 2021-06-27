@@ -1,7 +1,7 @@
 import React from "react";
 import { useTheme } from "@geist-ui/react";
 import Heading from "@/components/heading";
-import SearchAndShowWrapper from "../components/searchandshow"
+import SearchAndShowWrapper from "../components/searchandshow";
 
 const Page = () => {
   const theme = useTheme();
@@ -41,7 +41,7 @@ const Page = () => {
         .projects :global(.project__wrapper):not(:last-of-type) {
           margin-bottom: calc(1.5 * ${theme.layout.gap});
         }
-        
+
         @media (max-width: ${theme.breakpoints.sm.max}) {
           .page__content {
             flex-direction: column;

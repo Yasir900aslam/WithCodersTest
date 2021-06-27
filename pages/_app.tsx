@@ -29,14 +29,8 @@ const DashboardApp = ({ Component, pageProps }: AppProps) => {
         <meta name="theme-color" content="#000000" />
         <title>With Coders Test</title>
         <meta name="og:title" content="With Coders Test" />
-        <meta
-          name="og:description"
-          content="With Coders Test"
-        />
-        <meta
-          name="description"
-          content="With Coders TEst."
-        />
+        <meta name="og:description" content="With Coders Test" />
+        <meta name="description" content="With Coders TEst." />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
           rel="stylesheet"

@@ -1,8 +1,7 @@
 import React from "react";
 import { Text, Link, Card, Dot, Tag, useTheme } from "@geist-ui/react";
 import * as Icons from "react-feather";
-import SearchAndShow from './searchandshow'
-
+import SearchAndShow from "./searchandshow";
 
 const SearchAndShowWrapper: React.FC = () => {
   const theme = useTheme();
@@ -12,7 +11,7 @@ const SearchAndShowWrapper: React.FC = () => {
       <div className="project__wrapper">
         <Card className="project__card" shadow>
           <div>
-            <SearchAndShow /> 
+            <SearchAndShow />
           </div>
         </Card>
       </div>
