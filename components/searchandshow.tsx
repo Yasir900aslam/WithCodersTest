@@ -16,6 +16,7 @@ const SearchAndShow: React.FC = () => {
     setTemperature(' ');
     setMinTemperature(' ');
     setMaxTemperature(' ');
+    setErr(false);
 
     client
       .query({
@@ -71,7 +72,7 @@ const SearchAndShow: React.FC = () => {
 
       {err !== false ? (
         <>
-          <Text>Error Occured</Text>
+          <Text small={true}>Error Occured</Text>
           <Spacer />
         </>
       ) : null}
