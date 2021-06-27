@@ -1,7 +1,6 @@
 import React from "react";
 import NextLink from "next/link";
 import { Text, Link, useTheme } from "@geist-ui/react";
-import Heading from "@/components/heading";
 import EventListItem from "@/components/activity-event";
 import Project from "@/components/project";
 
