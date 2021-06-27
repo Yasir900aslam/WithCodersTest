@@ -10,9 +10,6 @@ const Page = () => {
 
   return (
     <>
-      <Heading
-        user={{ name: "Yasir Aslam", role: "none", github: "Yasir900Aslam" }}
-      />
       <div className="page__wrapper">
         <div className="page__content">
           <div className="projects">
