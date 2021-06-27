@@ -9,8 +9,14 @@ const SearchAndShow: React.FC = () => {
   const [mintemperature, setMinTemperature] = useState(' ');
   const [maxtemperature, setMaxTemperature] = useState(' ');
   const [err, setErr] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const getDataOfCity = () => {
+    setLoading(true);
+    setTemperature(' ');
+    setMinTemperature(' ');
+    setMaxTemperature(' ');
+
     client
       .query({
         query: gql`
@@ -30,12 +36,13 @@ const SearchAndShow: React.FC = () => {
       })
       .then((data) => {
         const { actual, min, max } = data.data.getCityByName.weather.temperature;
-        setErr(false);
         setTemperature(actual);
         setMinTemperature(min);
         setMaxTemperature(max);
+        setLoading(false);
       })
       .catch((err) => {
+        setLoading(false);
         setErr(true);
       });
   };
@@ -55,11 +62,40 @@ const SearchAndShow: React.FC = () => {
         Search
       </Button>
       <Spacer />
-      {err !== false ? <Text>Error Occured</Text> : null}
-      {temperature !== ' ' ? <Text>Actual Temperature: {temperature} Faranheit</Text> : null}
-      {mintemperature !== ' ' ? <Text>Minimum Temperature: {mintemperature} Faranheit</Text> : null}
+      {loading !== false ? (
+        <>
+          <Text small={true}> Loading...</Text>
+          <Spacer />
+        </>
+      ) : null}
 
-      {maxtemperature !== ' ' ? <Text>Maximum Temperature: {maxtemperature} Faranheit</Text> : null}
+      {err !== false ? (
+        <>
+          <Text>Error Occured</Text>
+          <Spacer />
+        </>
+      ) : null}
+
+      {temperature !== ' ' ? (
+        <>
+          <Text small={true}>Actual Temperature: {temperature} Faranheit</Text>
+          <Spacer />
+        </>
+      ) : null}
+
+      {mintemperature !== ' ' ? (
+        <>
+          <Text small={true}>Minimum Temperature: {mintemperature} Faranheit</Text>
+          <Spacer />
+        </>
+      ) : null}
+
+      {maxtemperature !== ' ' ? (
+        <>
+          <Text small={true}>Maximum Temperature: {maxtemperature} Faranheit</Text>
+          <Spacer />
+        </>
+      ) : null}
     </>
   );
 };
